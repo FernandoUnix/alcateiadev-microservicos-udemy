@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  server-admin:
+    image: udemy-server-hystrix:v1
+    ports:
+      - 7979:7979
+    networks:
+      - udemy
+
+networks:
+  udemy:
+    external: true

@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  microservicecicd-send-sms:
+    image: udemy-microservicecicd-send-sms:v1
+    ports:
+      - 8082:8082
+    environment:
+      - spring.boot.admin.client.url=${SPRING_ADMIN}
+    networks:
+      - udemy
+
+networks:
+  udemy:
+    external: true

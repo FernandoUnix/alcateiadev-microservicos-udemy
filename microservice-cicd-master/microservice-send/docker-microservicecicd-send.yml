@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  microservicecicd-send:
+    image: udemy-microservicecicd-send:v1
+    ports:
+      - 8084:8084
+    environment:
+      - spring.boot.admin.client.url=http://${IP}:8090
+      - sms.server.url=http://${IP}:8082
+      - email.server.url=http://${IP}:8081
+
+    networks:
+      - udemy
+
+networks:
+  udemy:
+    external: true
