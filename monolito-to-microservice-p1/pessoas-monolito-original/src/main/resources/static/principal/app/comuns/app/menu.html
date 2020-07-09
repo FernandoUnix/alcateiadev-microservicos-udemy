@@ -1,0 +1,36 @@
+<aside id="sidebar" ng-controller="navigation" ng-init="loadmenu()">
+
+    <ul class="side-menu">
+
+        <li class="sm-sub"><a ui-sref="app_views.dashboard"> <span>Home</span>
+        </a>
+        </li>
+        <li class="sm-sub"><a href=""> <i
+                class="zmdi zmdi-collection-text"></i> <span>Cadastros</span>
+        </a>
+            <ul>
+                <li><a ui-sref="app_views.pessoafisica"> <i
+                        class="zmdi zmdi-home"></i> <span>Pessoa Física</span>
+                </a></li>
+            </ul>
+        </li>
+
+        <li class="sm-sub"><a href=""> <i
+                class="zmdi zmdi-collection-text"></i> <span>Tabelas</span>
+        </a>
+            <ul>
+
+                <li><a ui-sref="app_views.grupo"> <i
+                        class="zmdi zmdi-home"></i> <span>Grupo</span>
+                </a></li>
+
+                <li><a ui-sref="app_views.partido"> <i
+                        class="zmdi zmdi-home"></i> <span>Partido</span>
+                </a></li>
+
+
+            </ul>
+        </li>
+
+    </ul>
+</aside>

@@ -1,0 +1,77 @@
+<section id="content">
+	<div class="container">
+
+		<header class="page-header">
+			<h3>{{titulo}}</h3>
+		</header>
+
+
+		<form role="form" name="projectForm" novalidate
+							ng-submit="gravar()">
+			<div class="tile">
+					<div class="t-body tb-padding">
+						<div layout-gt-xs="row">
+							
+								<div class="col-sm-3 m-b-20">
+										<ag-group-label
+											ng-obrigatorio="true" 
+											ng-label="Código" 
+											ng-for="codigo"
+											ng-form="projectForm"
+											ng-name="codigo"
+											ng-model="grupo.codigo"
+											ng-valor="grupo.codigo"
+											> 
+											</ag-group-label>
+									</div>
+								
+								</div>
+								
+								<div layout-gt-xs="row">
+								
+									<div class="col-sm-12 m-b-20">
+										<ag-group-label
+											ng-obrigatorio="true" 
+											ng-label="Nome" 
+											ng-for="nome"
+											ng-form="projectForm"
+											ng-name="nome"
+											ng-model="grupo.nome"
+											ng-valor="grupo.nome"
+											> 
+											</ag-group-label>
+									</div>
+								
+								</div>
+								
+								<div layout-gt-xs="row">
+									<div class="col-sm-12">
+										<label class="control-label text-uppercase">Comentário/Observação</label>
+									</div>
+								</div>	
+	
+								<div layout-gt-xs="row">
+									<div class="col-sm-12">
+										<md-input-container class="md-block">
+								          <textarea ng-model="grupo.comentario" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+								        </md-input-container>
+							        </div>
+						        </div>
+					        
+					</div>
+			</div>
+			
+			<div class="t-body tb-padding">
+				<div class="btn-group-lg " style="float:right" >
+					<button type="submit" class="btn btn-primary btn-sm m-t-10" ag-botao-permissao  >Gravar</button>
+					<button type="button" class="btn bg-gray btn-sm m-t-10 text-uppercase" id="cancelar" ui-sref='app_views.grupo'>Cancelar</button>
+				</div>
+			</div>
+			
+		</form>			
+					
+					
+					
+	</div>
+</section>
+

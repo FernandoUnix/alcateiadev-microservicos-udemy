@@ -1,0 +1,9 @@
+.classpath
+.project
+.settings/
+target/
+/.apt_generated/
+.factorypath
+.idea/
+*.iml
+src/main/resources/static/node_modules/

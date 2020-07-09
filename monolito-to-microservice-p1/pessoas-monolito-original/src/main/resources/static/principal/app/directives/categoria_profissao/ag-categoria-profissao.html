@@ -1,0 +1,53 @@
+<div ng-class="validarClass()">
+	<label class="control-label text-uppercase" for="categoria">Categoria
+		{{ngObrigatorio ? '*' : ''}}</label> <select class="form-control"
+		ng-model="ngModelInicio" ng-required="ngObrigatorio"
+		ng-options="item.id as item.nome for item in states">
+		
+		<option value="">Selecione uma Categoria</option>
+		
+	</select>
+
+	<div ng-show="passouOnChange">
+		<small class="help-block" ng-show="campo.$error.required">Categoria
+			é obrigatório.</small>
+	</div>
+</div>
+
+<!-- 
+      <div layout-gt-xs="row">
+	      <md-input-container class="md-block" flex-gt-xs> 
+	        <label>Categoria {{ngRequired ? '*': ''}}</label>
+	        
+	        <md-autocomplete
+	          ng-disabled="isDisabled"
+	          md-no-cache="noCache"
+	          md-selected-item="ngModelSelecionado"
+	          md-search-text="searchText"
+	          md-search-text-change="searchTextChange(searchText)"
+	          md-selected-item-change="selectedItemChange(item)"
+	          md-items="item in states"
+	          md-item-text="item.nome"
+	          md-min-length="0"
+	          md-delay="1000"
+	          placeholder="Digite a categoria"
+	          name="categoria"
+	          ng-required="ngRequired"
+	          >
+	          
+	        <md-item-template>
+	          <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.nome}}</span>
+	        </md-item-template>
+	        
+	        <md-not-found>
+	          Nenhum resultado encontrado.
+	        </md-not-found>
+	      </md-autocomplete>
+	        
+	      <div ng-if="ngError" role="alert" style="color: rgb(221,44,0);">
+			<div>Categoria é obrigatório.</div>
+		  </div>
+	        
+	      </md-input-container>
+      </div>
+-->

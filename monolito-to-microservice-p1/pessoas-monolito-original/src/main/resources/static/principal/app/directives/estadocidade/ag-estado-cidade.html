@@ -1,0 +1,133 @@
+
+
+<div ng-class="validarClass()"  >
+
+	<!-- <div layout-gt-xs="row" >
+		<div class="input-group  ">
+			<label class="control-label text-uppercase" for="{{ngFor}}">{{ngLabel}}
+				{{ngRequired && ngLabel != '' ? '*' : ''}}</label>
+		</div>	
+	</div>	  -->
+
+	<div  layout-gt-xs="row">		
+
+
+		<table >
+		<tr>
+			<td width="100px">
+				<label class="control-label text-uppercase" for="{{ngFor}}">ESTADO {{ngRequired ? '*' : ''}}</label>
+			</td>
+
+			<td width="300px">
+				<label class="control-label text-uppercase" for="{{ngFor}}" ng-show="!ngRegional">CIDADE{{ngRegional ? '': ''}} {{ngRequired ? '*' : ''}}</label>
+				<label class="control-label text-uppercase" for="{{ngFor}}" ng-show="ngRegional">REGIONAL{{ngRegional ? '': ''}} {{ngRequired ? '*' : ''}}</label>
+			</td>
+			<td width="300px" ng-show="!ngRegional">
+				<label class="control-label text-uppercase">Regional</label>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="100px">
+					<select class="form-control" ng-change="valid(); selecionarEstado()" ng-model="ngModelEstado" ng-required="ngRequired" 
+					
+					ng-options="item.id as item.uf for item in estados"
+					ng-disabled="ngDisabled"
+					>
+	                    <!-- <option ng-repeat="item in estados" value="{{item.id}}" ng-selected="item.selected" >{{item.uf}}</option>  -->
+	                </select>	                
+			</td>
+			
+			<td width="300px" ng-show="!ngAddObjeto">
+				<select class="form-control" data-placeholder="Selecione a cidade..." ng-change="valid();" 
+						ng-model="ngModelCidade" style="width:300px" ng-disabled="ngModelEstado == null || ngModelEstado == ''"
+						ng-required="ngRequired"
+						ng-options="item.id as item.nome for item in states"
+						 >
+	                 <option value=""  >{{labelSelecioneCidade}}</option>
+	                 <!--  <option ng-repeat="item in states" value="{{item.id}}" >{{item.nome}}</option>-->
+	             </select>
+			</td>
+
+			<td width="300px" ng-show="ngAddObjeto">
+				<select class="form-control" data-placeholder="Selecione a cidade..." ng-change="valid();"
+						ng-model="ngModelCidade" style="width:300px" ng-disabled="ngModelEstado == null || ngModelEstado == ''"
+						ng-required="ngRequired"
+						ng-options="item as item.nome for item in states"
+				>
+					<option value=""  >{{labelSelecioneCidade}}</option>
+					<!--  <option ng-repeat="item in states" value="{{item.id}}" >{{item.nome}}</option>-->
+				</select>
+			</td>
+
+			<td width="300px" ng-show="!ngRegional">
+				<input class="form-control text-uppercase disabled" readonly ng-model="regionalName"/>
+			</td>
+
+		</tr>
+		</table>	
+	
+	</div>
+	
+	<div  layout-gt-xs="row">
+		<div ng-show="passouOnChange">
+			<small class="help-block" ng-show="campo.$error.required">{{ngLabel}} é obrigatório.</small>
+		</div>		
+	</div>	
+		
+			
+</div>
+
+
+
+
+
+<!-- 
+	  <div layout-gt-xs="row">      
+	      <md-input-container class="md-block"> 
+	        <label>Estado {{ngRequired ? '*':''}}</label>
+	        
+	        <md-select ng-model="ngModelEstado" ng-change="selecionarEstado()" ng-required="ngRequired"  name="estado">
+	          <md-option ng-repeat="estado in estados" value="{{estado.id}}" ng-selected="{{ngModelEstado.id==estado.id}}" >{{estado.uf}}</md-option>
+	        </md-select>
+	        
+	        <div ng-messages="ngForm.estado.$error" role="alert">
+				<div ng-message="required">Estado é obrigatório.</div>
+			</div>
+	      </md-input-container>
+      </div>
+      
+      <div layout-gt-xs="row">
+	      <md-input-container class="md-block"> 
+	        <label>Cidade {{ngRequired ? '*': ''}}</label>
+	        
+	        <md-autocomplete
+	          ng-disabled="isDisabled"
+	          md-no-cache="noCache"
+	          md-selected-item="ngModelCidade"
+	          md-search-text="searchText"
+	          md-selected-item-change="selectedItemChange(item)"
+	          md-items="item in states | filter:searchText"
+	          md-item-text="item.nome"
+	          md-min-length="0"
+	          placeholder="Digite a cidade"
+	          name="cidade"
+	          ng-required="ngRequired"
+	          >
+	          
+	        <md-item-template>
+	          <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.nome}}</span>
+	        </md-item-template>
+	        
+	        <md-not-found>
+	          Nenhum resultado encontrado "{{searchText}}".
+	        </md-not-found>
+	      </md-autocomplete>
+	        
+	      <div ng-messages="ngForm.cidade.$error" role="alert">
+			<div ng-message="required">Cidade é obrigatório.</div>
+		  </div>
+	        
+	      </md-input-container>
+      </div>
+ -->

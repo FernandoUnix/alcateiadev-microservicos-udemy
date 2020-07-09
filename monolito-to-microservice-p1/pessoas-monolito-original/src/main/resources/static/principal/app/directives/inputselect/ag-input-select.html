@@ -1,0 +1,161 @@
+
+<div ng-class="validarClass()"  >
+
+	<div layout-gt-xs="row">
+		<div class="input-group  ">
+			<label class="control-label text-uppercase" for="{{ngFor}}">{{ngLabel}}
+				{{ngObrigatorio ? '*' : ''}}</label>
+		</div>	
+	</div>	 
+
+	<div  layout-gt-xs="row">		
+
+
+		<table style="width: 100%">
+		<tr>
+			<td width="150px">
+				<label class="control-label text-uppercase">CÓDIGO {{ngLabelItem}}</label>
+			</td><td width="*">
+				<label class="control-label text-uppercase">DESCRIÇÃO {{ngLabelItem}}</label>
+			</td>
+
+			<td width="250px" ng-show="ngTipo == 'pf_tel_email' ">
+				<label class="control-label text-uppercase">TEL/CEL</label>
+			</td>
+
+			<td width="250px" ng-show="ngTipo == 'pf_tel_email' ">
+				<label class="control-label text-uppercase">E-MAIL</label>
+			</td>
+
+		</tr>
+		
+		<tr><td width="150px">
+			
+			<input
+				class="form-control text-uppercase "
+				ng-model="ngItem.codigo" 
+				ng-blur="carregarCodigo()" 
+				ng-change="valid(); carregarCodigoChange()" 
+				ng-disabled="desabilitar" 
+				ng-required="ngObrigatorio">
+		</td><td width="*">		
+		
+			<input 
+				class="form-control text-uppercase"
+				ng-model="ngItem.descricao" 
+				type="text" 
+				ng-blur="carregarDescricao()" 
+				ng-change="carregarDescricaoChange()"  
+				ng-disabled="desabilitar"  
+				ng-required="ngObrigatorio">
+		</td>
+
+			<td width="250px" ng-show="ngTipo == 'pf_extra' ">
+
+				<input
+						class="form-control text-uppercase"
+						ng-model="ngItem.extra"
+						type="text"
+						ng-disabled="true"
+						ng-required="false">
+			</td>
+
+			<td width="250px" ng-show="ngTipo == 'pf_tel_email' ">
+					<input
+						class="form-control text-uppercase"
+						ng-model="ngItem.enderTelefonePrincipal"
+						type="text"
+						ng-disabled="true"
+						ng-required="false">
+			</td>
+
+			<td width="250px" ng-show="ngTipo == 'pf_tel_email' ">
+				<input
+						class="form-control text-uppercase"
+						ng-model="ngItem.email"
+						type="text"
+						ng-disabled="true"
+						ng-required="false">
+			</td>
+
+
+
+
+		<td>
+				<button type="button" class="btn btn-default"
+					ng-click="clickJanela($event)">...</button>
+		</td>
+		</tr>
+		</table>	
+	
+	</div>
+	
+	<div  layout-gt-xs="row">
+		<div ng-show="passouOnChange">
+			<small class="help-block" ng-show="campo.$error.required">{{ngLabel}} é obrigatório.</small>
+		</div>		
+	</div>	
+			
+<!-- 		<input class="form-control" required
+		type="text" 
+		ng-model="nome"
+		ng-change="valid()"
+		ng-maxlength="1000" /> 
+
+		<div ng-show="passouOnChange">
+			<small class="help-block" ng-show="campo.$error.required">{{ngLabel}} é obrigatório.</small>
+		</div> -->
+</div>
+
+
+<!-- 		
+<ag-group-label ng-label="{{ngLabel}}" ng-obrigatorio="ngObrigatorio">
+
+		<md-input-container flex="initial" >  <input
+			ng-model="ngItem.codigo" ng-blur="carregarCodigo()" ng-change="carregarCodigoChange()" ng-disabled="desabilitar" ng-required="ngObrigatorio"> 
+		</md-input-container>
+			
+		<md-input-container flex="auto"  >
+		<input ng-model="ngItem.descricao" type="text" ng-blur="carregarDescricao()" ng-change="carregarDescricaoChange()"  ng-disabled="desabilitar"  ng-required="ngObrigatorio"> </md-input-container>
+
+		<md-input-container flex="noshrink">
+		<button type="button" class="btn btn-default btn-sm m-t-10"
+			ng-click="clickJanela($event)">...</button>
+		</md-input-container>
+		
+	
+</ag-group-label>
+ -->
+ 
+ 
+ 
+ 
+<!-- 
+<div layout="column" ng-cloak class="md-inline-form">
+
+	<md-content layout-gt-sm="row" layout-padding >
+	 	<md-input-container flex="grow">
+			<label> {{ngLabel}} {{ngObrigatorio ? '*': ''}}</label>
+		</md-input-container>
+	</md-content>
+	
+	<md-content layout-gt-sm="row" layout-padding >
+
+
+		<md-input-container flex="initial" > <label>Código</label> <input
+			ng-model="ngItem.codigo" ng-blur="carregarCodigo()" ng-change="carregarCodigoChange()" ng-disabled="desabilitar" ng-required="ngObrigatorio"> 
+		</md-input-container>
+			
+		<md-input-container flex="auto"  > <label>Descrição</label>
+		<input ng-model="ngItem.descricao" type="text" ng-blur="carregarDescricao()" ng-change="carregarDescricaoChange()"  ng-disabled="desabilitar"  ng-required="ngObrigatorio"> </md-input-container>
+
+		<md-input-container flex="noshrink">
+		<button type="button" class="btn btn-default btn-sm m-t-10"
+			ng-click="clickJanela($event)">...</button>
+		</md-input-container>
+		
+
+	</md-content>
+
+</div>
+ -->

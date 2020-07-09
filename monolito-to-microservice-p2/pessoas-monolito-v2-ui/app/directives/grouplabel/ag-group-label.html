@@ -1,0 +1,25 @@
+<div ng-class="validarClass()"  >
+	<label class="control-label text-uppercase" for="{{ngFor}}" ng-if="ngLabel != null" >{{ngLabel}}
+		{{ngObrigatorio ? '*' : ''}}</label> 
+		
+		<div class="input-group" style="width: 100%">
+			
+			<span class="zmdi icon input-group-addon {{ngIcon}}" ng-show="ngIcon != null"></span>
+					
+			<input class="form-control text-uppercase" 
+			ng-required="ngObrigatorio"
+			placeholder="{{placeholder}}"
+			type="{{ngType == null ? 'text' : ngType}}" 
+			ng-model="nome"
+		    ng-disabled="ngBloqueado"
+			ng-change="valid()"
+			/>
+			<!--ng-blur="ngBlur()"-->
+			<div ng-show="passouOnChange">
+				<small class="help-block" ng-show="campo.$error.required">{{ngLabel}} é obrigatório.</small>
+			</div>
+			
+		</div>
+		
+</div>
+

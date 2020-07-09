@@ -1,0 +1,13 @@
+<div ng-class="validarClass()">->{{ngModelInicio}}
+	<label class="control-label text-uppercase" for="grauaprox" ng-if="!ngOcultarLabel">GRAU DE APROXIMAÇÃO
+		{{ngObrigatorio ? '*' : ''}}</label> <select class="form-control"
+		ng-model="ngModelInicio" ng-required="ngObrigatorio"
+		ng-options="item.id as item.nome for item in items">
+		<option value="" >Selecione um Grau</option>
+	</select>
+
+	<div ng-show="passouOnChange">
+		<small class="help-block" ng-show="campo.$error.required">Grau de aproximação
+			é obrigatório.</small>
+	</div>
+</div>

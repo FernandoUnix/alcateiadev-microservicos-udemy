@@ -1,0 +1,67 @@
+<div class="color-line"></div>
+
+<div ng-controller="navigation" >
+<div class="login-container" ng-controller="reguser"  ng-show="!authenticated">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center m-b-md">
+                <h3>PartilhaClube</h3>
+                <small>Faça parte do nosso grupo!</small>
+            </div>
+            <div class="hpanel">
+                <div class="panel-body">
+                
+                         <form role="form" name="signup_form" novalidate ng-submit="gravar()">
+                         
+                            <div class="row">
+	                            <div class="form-group col-lg-12">
+	                                <label>Nome</label>
+	                                <input type="nome" class="form-control" name="nome" ng-model="userCad.nome" required>
+	                                <div class="m-t-xs" ng-show="signup_form.nome.$invalid && signup_form.submitted">
+			                            <span class="text-danger" ng-show="signup_form.nome.$error"><i class="fa fa-exclamation-triangle">Nome é obrigatório.</i></span>
+			                        </div>
+	                            </div>
+	                            <div class="form-group col-lg-6">
+	                                <label>Senha</label>
+	                                <input type="password" class="form-control" name="senha" ng-model="userCad.senha" required compare-to="userCad.confSenha" >
+	                                <div class="m-t-xs" ng-show="signup_form.senha.$invalid && signup_form.submitted">
+			                            <span class="text-danger" ng-show="signup_form.senha.$error"><i class="fa fa-exclamation-triangle">Senha e contra senha devem ser iguais.</i></span>
+			                        </div>
+	                            </div>
+	                            <div class="form-group col-lg-6">
+	                                <label>Confirmar senha</label>
+	                                <input type="password" class="form-control" name="confSenha" ng-model="userCad.confSenha" required>
+	                            </div>
+	                            <div class="form-group col-lg-12">
+	                                <label>E-mail</label>
+	                                <input type="email" class="form-control" name="email" ng-model="userCad.email" disabled>
+	                            </div>
+                            </div>
+                            <div class="text-center" ng-show="cadastroPermitido">
+                                <button class="btn btn-success">Registrar</button>
+                                <button class="btn btn-default">Cancelar</button>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <strong>PartilhaClube</strong> - PartilhaClube - Faça parte deste clube. <br/> 2015 Copyright PartilhaClube
+        </div>
+    </div>
+    
+</div>
+
+<div class="container" ng-show="authenticated">
+		<a class="btn btn-primary" href="/ui/">Go To User Interface</a>
+	</div>
+	
+	 <a
+					class="btn btn-primary" ng-show="authenticated" href=""
+					ng-click="logout()">logout</a>
+					
+	</div>

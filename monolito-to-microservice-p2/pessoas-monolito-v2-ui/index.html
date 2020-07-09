@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html ng-app="pessoas">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta name="format-detection" content="telephone=no">
+    <title page-title>Pessoas</title>
+
+    <link href="/ui/template/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/ui/template/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/ui/template/node_modules/angular-material/angular-material.css">
+
+	<link rel="stylesheet" href="/ui/template/js/angular-block-ui/angular-block-ui.min.css">
+	<link rel="stylesheet" href="/ui/template/vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid.override.min.css" >
+
+    <link href="/ui/css/app.min.css" rel="stylesheet">
+
+	<style>
+	.hint {
+    	position: absolute;
+    	left: 2px;
+    	right: auto;
+    	bottom: 7px;
+    	font-size: 12px;
+    	line-height: 14px;
+    	transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    	color: grey;
+	}
+
+	.center {
+	    margin: auto;
+	    width: 50%;
+	    padding: 10px;
+	}
+
+	.corFiltro {
+		background-color: rgba(255, 235, 59, 0.26);
+	}
+
+	.tb-padding2 {
+		padding: 0px 23px 70px;
+	}
+
+	@media (max-width:480px){
+		.menu-logo {
+			display: block;
+		}
+	}
+
+	</style>
+
+</head>
+
+
+<body  landing-scrollspy tour backdrop="true" ng-controller="navigation">
+
+<div class="four-zero" ng-show="loading">
+	Carregando....<br>
+	<img src="/ui/template/loading.svg" width="64" height="64" /><br>
+</div>
+
+
+
+	    <div ui-view autoscroll="true"></div>
+
+	<script src="/ui/template/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/ui/template/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+     <script src="/ui/template/vendors/bower_components/flot/jquery.flot.js"></script>
+     <script src="/ui/template/vendors/bower_components/flot/jquery.flot.resize.js"></script>
+     <script src="/ui/template/vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>
+     <script src="/ui/template/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+     <script src="/ui/template/vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>
+     <script src="/ui/template/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+     <script src="/ui/template/vendors/sparklines/jquery.sparkline.min.js"></script>
+     <script src="/ui/template/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+
+     <script src="/ui/template/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+     <script src="/ui/template/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+     <script src="/ui/template/vendors/bower_components/moment/min/moment.min.js"></script>
+     <script src="/ui/template/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js "></script>
+
+	<script type="text/javascript" src="/ui/template/node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="/ui/template/node_modules/angular-animate/angular-animate.min.js"></script>
+	<script type="text/javascript" src="/ui/template/node_modules/angular-aria/angular-aria.min.js"></script>
+
+	<script type="text/javascript" src="/ui/template/js/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="/ui/template/node_modules/angular-material/angular-material.min.js"></script>
+
+	<!--
+	<script type="text/javascript" src="/ui/template/js/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	-->
+
+	<script type="text/javascript" src="/ui/template/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+	<script type="text/javascript" src="/ui/template/js/angular-block-ui/angular-block-ui.min.js"></script>
+	<script type="text/javascript" src="/ui/template/vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid-override.min.js"></script>
+
+    <script src="/ui/template/vendors/input-mask/input-mask.min.js"></script>
+    <script src="/ui/template/js/angular-mask/mask.min.js"></script>
+
+    <script type="text/javascript" src="/ui/template/node_modules/angular-file-saver-master/dist/Blob.js"></script>
+    <script type="text/javascript" src="/ui/template/node_modules/angular-file-saver-master/dist/FileSaver.js"></script>
+    <script type="text/javascript" src="/ui/template/node_modules/angular-file-saver-master/dist/angular-file-saver.bundle.min.js"></script>
+
+	<script type="text/javascript" src="/ui/template/node_modules/angular-local-histor/angular-local-storage.min.js"></script>
+
+    <script src="/ui/template/js/jquerymask/jquery.mask.min.js"></script>
+
+<!-- inject:js -->
+
+		<script src="/ui/app/comuns/a_basico/comuns-modulo.js"></script>
+
+		<script src="/ui/app/comuns/1/app.js"></script>
+
+		<script src="/ui/app/comuns/1/config.js"></script>
+
+		<script src="/ui/app/comuns/1/main.js"></script>
+
+		<script src="/ui/app/comuns/config/config-service.js"></script>
+
+		<script src="/ui/app/comuns/message/message-service.js"></script>
+
+		<script src="/ui/app/comuns/http/http-puro-service.js"></script>
+
+		<script src="/ui/app/comuns/http/http-service.js"></script>
+
+		<script src="/ui/app/comuns/cep/cep-service.js"></script>
+
+		<script src="/ui/app/directives/botaook/botaook.js"></script>
+
+		<script src="/ui/app/directives/cargo/ag-cargo-controller.js"></script>
+
+		<script src="/ui/app/directives/cargo/ag-cargo-service.js"></script>
+
+		<script src="/ui/app/directives/cargo/ag-cargo.js"></script>
+
+		<script src="/ui/app/directives/categoria/ag-categoria-controller.js"></script>
+
+		<script src="/ui/app/directives/categoria/ag-categoria-service.js"></script>
+
+		<script src="/ui/app/directives/categoria/ag-categoria.js"></script>
+
+		<script src="/ui/app/directives/estadocidade/ag-estado-cidade-controller.js"></script>
+
+		<script src="/ui/app/directives/estadocidade/ag-estado-cidade-service.js"></script>
+
+		<script src="/ui/app/directives/estadocidade/ag-estado-cidade.js"></script>
+
+		<script src="/ui/app/directives/categoria_profissao/ag-categoria-profissao-controller.js"></script>
+
+		<script src="/ui/app/directives/categoria_profissao/ag-categoria-profissao-service.js"></script>
+
+		<script src="/ui/app/directives/categoria_profissao/ag-categoria-profissao.js"></script>
+
+		<script src="/ui/app/directives/filtro/ag-filtro-controller.js"></script>
+
+		<script src="/ui/app/directives/filtro/ag-filtro.js"></script>
+
+		<script src="/ui/app/directives/filtro-ordenacao/ag-filtro-ordenacao-controller.js"></script>
+
+		<script src="/ui/app/directives/filtro-ordenacao/ag-filtro-ordenacao.js"></script>
+
+		<script src="/ui/app/directives/grauaproximacao/ag-grau-aproximacao-controller.js"></script>
+
+		<script src="/ui/app/directives/grauaproximacao/ag-grau-aproximacao.js"></script>
+
+		<script src="/ui/app/directives/grid/ag-grid-controller.js"></script>
+
+		<script src="/ui/app/directives/grid/ag-grid.js"></script>
+
+		<script src="/ui/app/directives/groupdate/ag-group-date-controller.js"></script>
+
+		<script src="/ui/app/directives/groupdate/ag-group-date.js"></script>
+
+		<script src="/ui/app/directives/groupdate-idade/ag-group-date-idade-controller.js"></script>
+
+		<script src="/ui/app/directives/groupdate-idade/ag-group-date-idade.js"></script>
+
+		<script src="/ui/app/directives/grouplabel/ag-group-label-controller.js"></script>
+
+		<script src="/ui/app/directives/grouplabel/ag-group-label.js"></script>
+
+		<script src="/ui/app/directives/groupmask/ag-group-mask-controller.js"></script>
+
+		<script src="/ui/app/directives/groupmask/ag-group-mask.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-area-atuacao.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-cargo.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-controller.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-evento.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-expediente.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-grupo.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-janela.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-partido.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-pf.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-pj.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-profissao.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-responsavel.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-situacao-solicitacao.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-tema-solicitacao.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-tipo-solicitacao.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select-usuario.js"></script>
+
+		<script src="/ui/app/directives/inputselect/ag-input-select.js"></script>
+
+		<script src="/ui/app/directives/referenciasol/ag-referenciasol-controller.js"></script>
+
+		<script src="/ui/app/directives/referenciasol/ag-referenciasol.js"></script>
+
+		<script src="/ui/app/directives/relacao/ag-relacao-controller.js"></script>
+
+		<script src="/ui/app/directives/relacao/ag-relacao.js"></script>
+
+		<script src="/ui/app/directives/statuscores/ag-status-cores-controller.js"></script>
+
+		<script src="/ui/app/directives/statuscores/ag-status-cores.js"></script>
+
+		<script src="/ui/app/modulos/dashboard/dashboard-controller.js"></script>
+
+		<script src="/ui/app/modulos/grupos/grupo-config.js"></script>
+
+		<script src="/ui/app/modulos/grupos/grupo-crud-controller.js"></script>
+
+		<script src="/ui/app/modulos/grupos/grupo-list-controller.js"></script>
+
+		<script src="/ui/app/modulos/grupos/grupo-service.js"></script>
+
+		<script src="/ui/app/modulos/partido/partido-config.js"></script>
+
+		<script src="/ui/app/modulos/partido/partido-crud-controller.js"></script>
+
+		<script src="/ui/app/modulos/partido/partido-list-controller.js"></script>
+
+		<script src="/ui/app/modulos/partido/partido-service.js"></script>
+
+		<script src="/ui/app/modulos/pessoafisica/pessoafisica-config.js"></script>
+
+		<script src="/ui/app/modulos/pessoafisica/pessoafisica-crud-controller.js"></script>
+
+		<script src="/ui/app/modulos/pessoafisica/pessoafisica-list-controller.js"></script>
+
+		<script src="/ui/app/modulos/pessoafisica/pessoafisica-report-controller.js"></script>
+
+		<script src="/ui/app/modulos/pessoafisica/pessoafisica-service.js"></script>
+
+		<script src="/ui/app/modulos/principal/principal-controller.js"></script>
+
+		<!-- endinject -->
+
+
+<script src="/ui/template/js/functions.js"></script>
+<script src="/ui/template/js/demo.js"></script>
+
+        
+</body>
+</html>

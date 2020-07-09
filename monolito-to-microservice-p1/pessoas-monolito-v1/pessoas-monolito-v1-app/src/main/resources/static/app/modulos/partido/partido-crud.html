@@ -1,0 +1,48 @@
+<section id="content">
+	<div class="container">
+
+		<header class="page-header">
+			<h3>{{titulo}}</h3>
+		</header>
+
+		<form role="form" name="projectForm" novalidate
+							ng-submit="gravar()">
+			<div class="tile">
+					<div class="t-body tb-padding">
+						<div layout-gt-xs="row">
+
+								<div class="col-sm-3 m-b-20">
+									<ag-group-label ng-obrigatorio="true" ng-label="Sigla"
+										ng-for="sigla" ng-form="projectForm" ng-name="codigosigla"
+										ng-model="bean.sigla" ng-valor="bean.sigla">
+									</ag-group-label>
+								</div>
+	
+							</div>
+							
+							<div layout-gt-xs="row">
+
+								<div class="col-sm-12">
+									<ag-group-label ng-obrigatorio="true" ng-label="Descrição"
+										ng-for="descricao" ng-form="projectForm" ng-name="descricao"
+										ng-model="bean.descricao" ng-valor="bean.descricao">
+									</ag-group-label>
+								</div>
+	
+							</div>
+							
+					</div>
+			</div>
+			
+			<div class="t-body tb-padding">
+				<div class="btn-group-lg " style="float:right" >
+					<button type="submit" class="btn btn-primary btn-sm m-t-10" ag-botao-permissao  >Gravar</button>
+					<button type="button" class="btn bg-gray btn-sm m-t-10 text-uppercase" id="cancelar" ui-sref='app_views.partido'>Cancelar</button>
+				</div>
+			</div>
+			
+		</form>			
+					
+	</div>
+</section>
+

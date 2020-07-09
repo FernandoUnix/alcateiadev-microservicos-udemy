@@ -1,0 +1,48 @@
+<section id="content">
+	<div class="container">
+
+		<header class="page-header">
+			<h3>{{titulo}}</h3>
+		</header>
+
+		<ag-filtro ng-funcao-pesquisa="consultar">
+
+		<div class="row">
+			<div class="col-sm-12 actionBar">
+
+				<div class="search form-group">
+					<div class="input-group">
+						<span class="zmdi icon input-group-addon zmdi-search"></span> <input
+							type="text" class="search-field form-control corFiltro" placeholder="Nome"
+							ng-model="filtro.nome">
+					</div>
+				</div>
+
+				<ag-filtro-ordenacao ng-lista-campos="listaCampos" ></ag-filtro-ordenacao>
+
+			</div>
+		</div>
+
+		</ag-filtro>
+
+		<div class="t-body tb-padding2">
+			<div class="btn-group-lg " style="float:right" >
+				<button type="submit" class="btn btn-success btn-sm m-t-10" ag-botao-permissao
+						ui-sref='app_views.pessoafisica_new'>Incluir</button>
+			</div>
+		</div>
+
+		<ag-grid ng-data="grid" ng-grid-editar="editar"
+			ng-grid-excluir="excluir" ng-funcao-pesquisa="consultar"></ag-grid>
+
+		<div class="t-body tb-padding2">
+			<div class="btn-group-lg " style="float:right" >
+				<button type="submit" class="btn btn-success btn-sm m-t-10" ag-botao-permissao
+						ui-sref='app_views.pessoafisica_new'>Incluir</button>
+			</div>
+		</div>
+
+
+	</div>
+
+</section>

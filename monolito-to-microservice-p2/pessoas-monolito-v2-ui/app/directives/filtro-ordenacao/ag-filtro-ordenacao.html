@@ -1,0 +1,24 @@
+<div class="actions btn-group">
+
+	<div class="dropdown btn-group">
+		<button class="btn btn-default dropdown-toggle" type="button"
+			data-toggle="dropdown" title="Ordenar Consulta">
+			<span class="dropdown-text"><span
+				class="zmdi icon zmdi-view-module"></span></span> <span class="caret"></span>
+		</button>
+
+		<ul class="dropdown-menu pull-right" role="menu">
+			
+			<li class="p-l-10" ng-repeat="item in ngListaCampos">
+				<div class="checkbox cr-alt">
+					<label class="p-l-25 dropdown-item"><input name="id" ng-model="item.checked"
+						type="checkbox" value="{{item.campo}}" class="dropdown-item-checkbox"
+						ng-checked="item.checked"><i class="input-helper"></i>{{item.label}}</label>
+				</div>
+			</li>
+				
+				
+				
+		</ul>
+	</div>
+</div>

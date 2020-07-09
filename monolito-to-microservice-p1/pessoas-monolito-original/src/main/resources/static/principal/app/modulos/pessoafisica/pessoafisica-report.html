@@ -1,0 +1,269 @@
+<style>
+	.scrollit {
+		overflow:scroll;
+		height:500px;
+	}
+
+</style>
+<section id="content">
+	<div class="container">
+
+		<header class="page-header">
+			<h3>{{titulo}}</h3>
+		</header>
+
+		<form role="form" name="projectForm" novalidate>
+
+
+				<div class="tile">
+
+					<div class="t-body tb-padding">
+					
+						<div layout-gt-xs="row">
+								
+								<div class="col-xs-3">
+									<label class="control-label text-uppercase"   >TIPO DE RELATÓRIO:</label>
+									<select class="form-control" ng-model="itemTipoRelatorio" ng-change="tipChange()" ng-options="rel.label for rel in optRelatorios"  >
+									</select>
+								</div>
+								
+								<div class="col-xs-3">
+									<label class="control-label text-uppercase">ORDENADO POR:</label>
+									<select class="form-control"  ng-model="itemOrdenadorPor" ng-options="rel.label for rel in optOrdenadoPor">
+									</select>
+								</div>
+								
+								<div class="col-xs-3">
+									<label class="control-label text-uppercase">ORDENADO EM:</label>
+									<select class="form-control"  ng-model="itemOrdenadorEm" ng-options="rel.label for rel in optOrdenadoEm">
+									</select>
+								</div>
+								
+						</div>
+					
+					</div>
+				</div>	
+				
+				<br>
+				
+				<div class="tile">
+					<div class="t-header">
+						<div class="th-title text-uppercase">Filtros</div>
+					</div>
+
+					<div class="t-body tb-padding">
+
+						<div layout-gt-xs="row">
+							<div>
+								<label class="radio-inline cr-alt">
+									<input type="radio" name="tpFiltro"  ng-model="tpFiltro" id="TODOS" value="T" ng-click="tpFiltroController()">
+									<i class="input-helper"></i>
+									GERAR RELATÓRIO COM TODOS OS DADOS
+								</label><br>(Não será possível visualizar os dados na tela. Somente gerar os relatórios)<br>
+								<label class="radio-inline cr-alt">
+									<input type="radio" name="tpFiltro"  ng-model="tpFiltro" id="FILTRO" value="F"  ng-click="tpFiltroController()">
+									<i class="input-helper"></i>
+									GERAR RELATÓRIO COM FILTRAR
+								</label><br>(Será possível visualizar os dados na tela, mas os filtros passam a ser obrigatórios.)
+							</div>
+						</div>
+
+					</div>
+
+					<div class="t-body tb-padding">
+			
+						<div layout-gt-xs="row">
+				
+								<div class="col-xs-6">
+										<ag-group-label
+											ng-obrigatorio="false" 
+											ng-label="Nome" 
+											ng-for="nome"
+											ng-form="projectForm"
+											ng-name="nome"
+											ng-model="filtro.nome"
+											ng-valor="filtro.nome"
+											> 
+											</ag-group-label>
+								</div>
+								<div class="col-xs-3">
+										<label class="control-label text-uppercase">SEXO</label>
+										<select class="form-control" ng-model="itemSexo" ng-options="rel.label for rel in optSexo">
+										</select>
+									</div>
+	
+								
+						</div>
+
+						<div layout-gt-xs="row">
+							<div class="col-xs-12">
+								<ag-estado-cidade
+										ng-form="projectForm"
+										ng-model-estado="itemEstado"
+										ng-model-cidade="itemCidade"
+										ng-required="false"
+										ng-label=""
+								></ag-estado-cidade>
+							</div>
+
+						</div>
+
+						<div layout-gt-xs="row">
+								<div class="col-xs-12">
+									<ag-estado-cidade 
+										ng-form="projectForm"
+										ng-model-estado="itemRegionalEstado"
+										ng-model-cidade="itemRegionalCidade"
+										ng-required="false"
+										ng-label=""
+										ng-regional="true"
+										></ag-estado-cidade>
+								</div>
+								
+						</div>
+
+					</div>
+			</div>
+
+			<br>			
+			
+			<div class="tile">
+
+				<div class="t-body tb-padding">
+
+					<div layout-gt-xs="row">
+						<div class="col-sm-12">
+							<label class="radio-inline cr-alt">
+								<input type="checkbox" name="semGrupos"  ng-model="semGrupos" id="semGrupos" value="S" >
+								<i class="input-helper"></i>
+								IMPRIMIR REGISTROS SEM GRUPOS
+							</label><br>(Não será possível visualizar os dados na tela. Somente gerar os relatórios)<br>
+						</div>
+					</div>
+
+					<br>
+
+					<div layout-gt-xs="row">
+						<div class="col-sm-12">
+							<ag-input-select ng-item="itemGrupo" ng-obrigatorio="false"
+								ng-tipo="grupo" ng-label-item="GRUPO"></ag-input-select>
+						</div>	
+					</div>	
+			
+					<br>
+					
+					<div layout-gt-xs="row">
+						<div class="col-sm-12">
+							<ag-input-select ng-item="itemCargo" ng-obrigatorio="false"
+								ng-tipo="cargo" ng-label-item="CARGO"></ag-input-select>
+						</div>	
+					</div>	
+			
+					<br>
+			
+					<div layout-gt-xs="row">
+						<div class="col-sm-12">
+							<ag-input-select ng-item="itemPartido" ng-obrigatorio="false" ng-name="partido"
+								ng-tipo="partido" ng-label-item="PARTIDO"></ag-input-select>
+						</div>	
+					</div>
+
+					<div layout-gt-xs="row">
+						<div class="col-sm-12">
+							<ag-input-select ng-item="itemProfissao" ng-obrigatorio="false" ng-name="PROFISSAO"
+											 ng-tipo="profissao" ng-label-item="PROFISSAO"></ag-input-select>
+						</div>
+					</div>
+													
+					</div>
+			</div>
+				
+			<div class="t-body tb-padding">
+				<div class="btn-group-lg " style="float:right" >
+					<button type="submit" class="btn btn-primary btn-sm m-t-10" ng-click="consultar()" ng-disabled="btBloqVisu">VISUALIZAR</button>
+					<button type="submit" class="btn bg-orange btn-sm m-t-10" ng-click="pdf()" ng-disabled="btBloq" >GERAR PDF</button>
+					<button type="submit" class="btn bg-green btn-sm m-t-10" ng-click="emails()" ng-disabled="btBloq">EXTRAIR E-MAILS</button>
+				</div>
+			</div>
+
+
+			<div class="" ng-show="dadosConsulta.length != 0 && itemTipoRelatorio.id != 'DUPLICIDADE'" >
+				<h1>RELATÓRIO {{dadosGerais.nomeEmpresa}}</h1>
+				<br><br>
+					<div class="scrollit">
+					<table id="data-table-command"
+						   class="table table-bordered table-vmiddle text-uppercase" >
+						<thead>
+						<tr>
+								<th data-column-id="id" data-type="numeric">ID</th>
+								<th data-column-id="nome" data-order="desc">NOME</th>
+								<th data-column-id="telefone" data-order="desc">TELEFONE</th>
+								<th data-column-id="cidade" data-order="desc">CIDADE</th>
+								<th data-column-id="email" data-order="desc">E-MAIL</th>
+						</tr>
+						</thead>
+
+						<tbody>
+
+							<tr ng-repeat="item in dadosConsulta">
+								<td data-type="numeric">{{item.id}}</td>
+								<td data-order="desc">{{item.nome}}</td>
+								<td data-order="desc">{{item.enderTelefonePrincipal}}</td>
+								<td data-order="desc">{{item.enderCidadeNome}}</td>
+								<td data-order="desc">{{item.email}}</td>
+							</tr>
+
+						<tr>
+							<td colspan="{{dadosConsulta.length}}" ng-show="dadosConsulta.length == 0">Nenhum registro encontrado</td>
+						</tr>
+
+						</tbody>
+					</table>
+					</div>
+
+				<br><br>
+
+				<h3>Foram encontrados {{dadosConsulta.length}} registro(s).</h3>
+					<h3>Gerado {{dadosGerais.dataHora}}</h3>
+			</div>
+
+			<div class="" ng-show="dadosConsulta.length != 0 && itemTipoRelatorio.id == 'DUPLICIDADE'" >
+				<h1>RELATÓRIO {{dadosGerais.nomeEmpresa}}</h1>
+				<br><br>
+				<div class="scrollit">
+					<table id="data-table-command"
+						   class="table table-bordered table-vmiddle text-uppercase">
+						<thead>
+						<tr>
+							<th data-column-id="nome" data-order="desc">NOME</th>
+							<th data-column-id="telefone" data-order="desc">QUANTIDADE</th>
+						</tr>
+						</thead>
+
+						<tbody>
+
+						<tr ng-repeat="item in dadosConsulta">
+							<td data-order="desc">{{item.nome}}</td>
+							<td data-order="desc">{{item.qtd}}</td>
+						</tr>
+
+						<tr>
+							<td colspan="{{dadosConsulta.length}}" ng-show="dadosConsulta.length == 0">Nenhum registro encontrado</td>
+						</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+				<br><br>
+
+				<h3>Foram encontrados {{dadosConsulta.length}} registro(s).</h3>
+				<h3>Gerado {{dadosGerais.dataHora}}</h3>
+			</div>
+
+		</form>
+
+	</div>
+
+</section>
+

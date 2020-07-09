@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.br.marcelo.pessoas</groupId>
+    <artifactId>pessoas-monolito-v2-parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>pessoas-monolito-v2-parent</name>
+    <description>pessoas-monolito-v2-parent</description>
+
+    <modules>
+        <module>pessoas-monolito-v2-app</module>
+        <module>pessoas-monolito-v2-gateway</module>
+    </modules>
+
+</project>

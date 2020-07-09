@@ -1,0 +1,610 @@
+<section id="content" data-ng-init="init()">
+	<div>
+
+		<header class="page-header">
+			<h3>{{titulo}}</h3>
+			<div class="row">
+				<div class="col-sm-6"></div>
+				<div class="col-sm-6">
+
+					<!-- Site Visitors -->
+					<div class="tile" style="width: 160px">
+						<div class="tile-body">
+							<div class="bg-blue count-box">
+								<div class="row">
+									<div class="col-sm-3 col-xs-6">
+										<div class="cb-item" style="width: 120px">
+											<h3>{{nroCodigo}}</h3>
+											<small>Número</small>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<form role="form" name="projectForm" novalidate ng-submit="gravar()">
+
+			<div class="tile">
+				<div class="t-header">
+					<div class="th-title text-uppercase">Dados Pessoais</div>
+				</div>
+
+				<div class="t-body tb-padding">
+
+					<div layout-gt-xs="row">
+					
+						<div class="col-xs-3">
+							<ag-group-label
+								ng-obrigatorio="false" 
+								ng-label="Tratamento" 
+								ng-for="tratamento"
+								ng-form="projectForm"
+								ng-name="tratamento"
+								ng-model="bean.dpTratamento"
+								ng-valor="bean.dpTratamento"
+								placeholder="ILMO(A) SR(A)"
+								> 
+								</ag-group-label>
+								
+						</div>
+						
+						<div class="col-xs-12">
+							<ag-group-label
+								ng-obrigatorio="true" 
+								ng-label="Nome" 
+								ng-for="dpNome"
+								ng-form="projectForm"
+								ng-name="dpNome"
+								ng-model="bean.dpNome"
+								ng-valor="bean.dpNome"
+								>
+								</ag-group-label>
+						</div>
+
+					</div>
+
+					<div layout-gt-xs="row">
+					
+					<div class="col-xs-3">	
+							<ag-group-date-idade
+								ng-obrigatorio="false" 
+								ng-label="Data de Nasc." 
+								ng-for="dpDtNascimentoTmp"
+								ng-form="projectForm"
+								ng-name="dpDtNascimentoTmp"
+								ng-model="dpDtNascimentoTmp"
+								ng-valor="dpDtNascimentoTmp"
+								> 
+							</ag-group-date-idade>
+						</div>
+						
+						<div class="col-sm-3 m-b-20">
+							<ag-group-label
+								ng-obrigatorio="false" 
+								ng-label="Critério" 
+								ng-for="dpCriterio"
+								ng-form="projectForm"
+								ng-name="dpCriterio"
+								ng-model="bean.dpCriterio"
+								ng-valor="bean.dpCriterio"
+								> 
+								</ag-group-label>
+						</div>
+						
+						<div class="col-sm-3 m-b-20">
+							<label class="control-label text-uppercase">Sexo</label>
+					
+							<div>
+								<label class="radio-inline cr-alt">
+		                            <input type="radio" name="dpSexo"  ng-model="bean.dpSexo" id="MASCULINO" value="MASCULINO" >
+		                            <i class="input-helper"></i>  
+		                            MASCULINO
+		                        </label><br>
+		                        <label class="radio-inline cr-alt">
+		                            <input type="radio" name="dpSexo"  ng-model="bean.dpSexo" id="FEMININO" value="FEMININO">
+		                            <i class="input-helper"></i>     
+		                            FEMININO
+		                        </label><br>
+		                        <label class="radio-inline cr-alt">
+		                            <input type="radio" name="dpSexo"  ng-model="bean.dpSexo" id="DESCONHECIDO" value="DESCONHECIDO">
+		                            <i class="input-helper"></i>     
+		                            DESCONHECIDO
+	                        	</label>
+                        	</div>
+                        </div>	
+                        
+					</div>
+
+					<div layout-gt-xs="row">
+
+						<div class="col-xs-12">
+							<ag-group-label
+								ng-obrigatorio="false" 
+								ng-label="Apelido" 
+								ng-for="dpApelido"
+								ng-form="projectForm"
+								ng-name="dpApelido"
+								ng-model="bean.dpApelido"
+								ng-valor="bean.dpApelido"
+								> 
+								</ag-group-label>
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+
+
+			<div class="tile">
+				<div class="t-header">
+					<div class="th-title text-uppercase">Endereço</div>
+				</div>
+
+				<div class="t-body tb-padding">
+					
+					<div layout-gt-xs="row">
+					
+						<div class="col-xs-3">
+							<ag-group-mask
+								ng-obrigatorio="true" 
+								ng-label="CEP" 
+								ng-for="enderCep"
+								ng-form="projectForm"
+								ng-name="enderCep"
+								ng-model="bean.enderCep"
+								ng-valor="bean.enderCep"
+								ng-mask="99999-999"
+								ng-tipo="cep"
+								> 
+							</ag-group-mask>
+						</div>
+						
+						<div class="col-xs-12">
+							<ag-group-label
+								ng-obrigatorio="true" 
+								ng-label="Logradouro" 
+								ng-for="enderLogradouro"
+								ng-form="projectForm"
+								ng-name="enderLogradouro"
+								ng-model="bean.enderLogradouro"
+								ng-valor="bean.enderLogradouro"
+								> 
+							</ag-group-label>
+						</div>
+								
+					</div>
+
+					<div layout-gt-xs="row">
+
+						<div class="col-xs-3">
+							<ag-group-label
+								ng-obrigatorio="true" 
+								ng-label="Bairro" 
+								ng-for="enderBairro"
+								ng-form="projectForm"
+								ng-name="enderBairro"
+								ng-model="bean.enderBairro"
+								ng-valor="bean.enderBairro"
+								> 
+							</ag-group-label>
+						</div>
+											
+						<div class="col-xs-12">
+						</div>
+					</div>
+					
+					
+					
+					
+					
+					
+
+					<div layout-gt-xs="row">
+
+						<div class="col-xs-3">
+							<label class="control-label text-uppercase">Correspondência</label>
+					
+							<div>
+								<label class="radio-inline cr-alt">
+		                            <input type="radio" name="dpCorr"  ng-model="bean.enderCorrespondencia" id="TODA" value="TODA" >
+		                            <i class="input-helper"></i>  
+		                            TODA
+		                        </label><br>
+		                        <label class="radio-inline cr-alt">
+		                            <input type="radio" name="dpCorr"  ng-model="bean.enderCorrespondencia" id="APENAS_PESSOAL" value="APENAS_PESSOAL">
+		                            <i class="input-helper"></i>     
+		                            APENAS PESSOAL
+		                        </label>
+                        	</div>
+                        </div>
+                        
+						<div class="col-xs-3">
+							<label class="control-label text-uppercase">Tipo de Endereço</label>
+					
+							<div>
+								<label class="radio-inline cr-alt">
+		                            <input type="radio" name="dpTipEnder"  ng-model="bean.enderTipoEndereco" id="RESIDENCIAL" value="RESIDENCIAL" >
+		                            <i class="input-helper"></i>  
+		                            RESIDENCIAL
+		                        </label><br>
+		                        <label class="radio-inline cr-alt">
+		                            <input type="radio" name="dpTipEnder"  ng-model="bean.enderTipoEndereco" id="COMERCIAL" value="COMERCIAL">
+		                            <i class="input-helper"></i>     
+		                            COMERCIAL
+		                        </label>
+                        	</div>
+                        </div>
+
+					</div>
+
+<br>
+
+					<div layout-gt-xs="row">
+					
+						<div class="col-sm-3 m-b-20">
+							<ag-group-mask
+								ng-obrigatorio="false" 
+								ng-label="Telefone Principal" 
+								ng-for="enderTelefonePrincipal"
+								ng-form="projectForm"
+								ng-name="enderTelefonePrincipal"
+								ng-model="bean.enderTelefonePrincipal"
+								ng-valor="bean.enderTelefonePrincipal"
+								ng-mask="(999) 99999-9999"
+								ng-icon="zmdi-phone"
+								ng-tipo="fone"
+								> 
+							</ag-group-mask>
+						</div>
+						
+						<div class="col-sm-3 m-b-20">
+							<ag-group-mask
+								ng-obrigatorio="false" 
+								ng-label="Telefone Comercial" 
+								ng-for="enderTelefoneSecundario"
+								ng-form="projectForm"
+								ng-name="enderTelefoneSecundario"
+								ng-model="bean.enderTelefoneSecundario"
+								ng-valor="bean.enderTelefoneSecundario"
+								ng-mask="(999) 99999-9999"
+								ng-icon="zmdi-phone"
+								ng-tipo="fone"
+								> 
+							</ag-group-mask>
+						</div>
+						
+						<div class="col-sm-3 m-b-20">
+							<ag-group-mask
+								ng-obrigatorio="false" 
+								ng-label="Telefone Celular" 
+								ng-for="enderFax"
+								ng-form="projectForm"
+								ng-name="enderFax"
+								ng-model="bean.enderFax"
+								ng-valor="bean.enderFax"
+								ng-mask="(999) 99999-9999"
+								ng-icon="zmdi-phone"
+								ng-tipo="fone"
+								> 
+							</ag-group-mask>
+						</div>
+						
+						<div class="col-sm-3 m-b-20">
+							<ag-group-mask
+								ng-obrigatorio="false" 
+								ng-label="Telefone Outro" 
+								ng-for="enderTelefoneOutro"
+								ng-form="projectForm"
+								ng-name="enderTelefoneOutro"
+								ng-model="bean.enderTelefoneOutro"
+								ng-valor="bean.enderTelefoneOutro"
+								ng-mask="(999) 99999-9999"
+								ng-icon="zmdi-phone"
+								ng-tipo="fone"
+								> 
+							</ag-group-mask>
+						</div>
+						
+					</div>
+
+
+
+
+					<div layout-gt-xs="row">
+						<div class="col-sm-12">
+							<label class="control-label text-uppercase">Encaminhamento nas correspondências</label>
+						</div>
+					</div>	
+					
+					<div layout-gt-xs="row">
+						<div class="col-sm-12">
+							<md-input-container class="md-block" flex-gt-sm flex="auto">
+	
+							<label></label> <input
+								type="text" name="enderEncaminCorrespondencia"
+								ng-model="bean.enderEncaminCorrespondencia" /> </md-input-container>
+						</div>	
+					</div>
+
+				</div>
+			</div>
+
+			<div class="tile">
+				<div class="t-header">
+					<div class="th-title text-uppercase">Grupos</div>
+				</div>
+
+				<div class="t-body tb-padding">
+					<ag-input-select ng-item="itemGrupo" ng-obrigatorio="false"
+						ng-tipo="grupo" ng-label="Selecione um grupo"></ag-input-select>
+
+					<button type="button" class="btn btn-default btn-sm m-t-10"
+						ng-click="addGrupo($event)"
+						ng-disabled="itemGrupo == null || itemGrupo.id == null || itemGrupo.id == ''">Adicione
+						o item na lista</button>
+
+					<div class="table-responsive m-t-20">
+						<table class="table">
+							<thead>
+								<tr>
+									<th width="50">#</th>
+									<th width="215">Código</th>
+									<th width="*">Descrição</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in itensGrupo">
+									<td>
+										<div class="checkbox cr-alt">
+											<md-checkbox ng-checked="exists(item, selected)"
+												ng-click="toggle(item, selected)"></md-checkbox>
+										</div>
+
+									</td>
+									<td>{{item.grupo.codigo}}</td>
+									<td>{{item.grupo.nome}}</td>
+								</tr>
+
+								<tr ng-show="itensGrupo.length==0">
+									<td colspan="3">Nenhum item selecionado.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<button type="button" class="btn btn-default btn-sm m-t-10"
+						ng-click="removerGrupo()" ng-disabled="selected.length<=0">Remover
+						Selecionados</button>
+
+				</div>
+			</div>
+
+
+
+
+
+			<div class="tile">
+				<div class="t-header">
+					<div class="th-title text-uppercase">Informações Partidárias</div>
+				</div>
+
+				<div class="t-body tb-padding">
+
+					<div layout-gt-xs="row">
+						<div class="col-sm-12">
+							<ag-input-select ng-item="itemPartido" ng-obrigatorio="false"
+								ng-tipo="partido" ng-label="Selecione um Partido"></ag-input-select>
+						</div>	
+					</div>	
+
+
+					<div layout-gt-xs="row">
+						
+						<div class="col-sm-3 m-b-20">
+							<ag-group-label
+								ng-obrigatorio="false" 
+								ng-label="Título de Eleitor" 
+								ng-for="tituloEleitor"
+								ng-form="projectForm"
+								ng-name="tituloEleitor"
+								ng-model="bean.tituloEleitor"
+								ng-valor="bean.tituloEleitor"
+								> 
+							</ag-group-label>
+						</div>
+						
+						<div class="col-sm-3 m-b-20">
+							<ag-group-label
+								ng-obrigatorio="false" 
+								ng-label="Zona" 
+								ng-for="zona"
+								ng-form="projectForm"
+								ng-name="zona"
+								ng-model="bean.zona"
+								ng-valor="bean.zona"
+								> 
+							</ag-group-label>
+						</div>
+						
+						<div class="col-sm-3 m-b-20">
+							<ag-group-label
+								ng-obrigatorio="false" 
+								ng-label="Sessão" 
+								ng-for="sessao"
+								ng-form="projectForm"
+								ng-name="sessao"
+								ng-model="bean.sessao"
+								ng-valor="bean.sessao"
+								> 
+							</ag-group-label>
+						</div>
+						
+					</div>
+			</div>
+		</div>	
+		
+		
+		<div class="tile">
+				<div class="t-header">
+					<div class="th-title text-uppercase">Redes Sociais / Email</div>
+				</div>
+
+				<div class="t-body tb-padding">
+						
+					<div layout-gt-xs="row">
+					
+						<div class="col-sm-3">
+							<ag-group-label
+								ng-obrigatorio="false" 
+								ng-label="Facebook" 
+								ng-for="facebook"
+								ng-form="projectForm"
+								ng-name="facebook"
+								ng-model="bean.facebook"
+								ng-valor="bean.facebook"
+								ng-icon="zmdi-facebook"
+								> 
+							</ag-group-label>
+						</div>
+						
+						<div class="col-sm-3">
+							<ag-group-label
+								ng-obrigatorio="false" 
+								ng-label="Twitter" 
+								ng-for="twitter"
+								ng-form="projectForm"
+								ng-name="twitter"
+								ng-model="bean.twitter"
+								ng-valor="bean.twitter"
+								ng-icon="zmdi-twitter"
+								> 
+							</ag-group-label>
+						</div>
+						
+						<div class="col-sm-3">
+							<ag-group-label
+								ng-obrigatorio="false" 
+								ng-label="Youtube" 
+								ng-for="youtube"
+								ng-form="projectForm"
+								ng-name="youtube"
+								ng-model="bean.youtube"
+								ng-valor="bean.youtube"
+								ng-icon="zmdi-google-play"
+								
+								> 
+							</ag-group-label>
+						</div>
+						
+					</div>
+					
+					<div layout-gt-xs="row">
+					
+					
+						<div class="col-sm-6">
+							<ag-group-label
+								ng-obrigatorio="false" 
+								ng-label="E-Mail Principal" 
+								ng-for="email"
+								ng-form="projectForm"
+								ng-name="email"
+								ng-model="bean.email"
+								ng-valor="bean.email"
+								> 
+							</ag-group-label>
+						</div>
+						
+						<div class="col-sm-6">
+						
+							<ag-group-label
+								ng-obrigatorio="false" 
+								ng-label="E-Mail" 
+								ng-for="email"
+								ng-form="projectForm"
+								ng-name="email"
+								ng-model="bean.emailOutros"
+								ng-valor="bean.emailOutros"
+								> 
+							</ag-group-label>
+							
+						</div>
+						
+					
+					
+					</div>	
+
+				</div>
+			</div>
+
+
+
+
+			<div class="tile">
+				<div class="t-header">
+					<div class="th-title text-uppercase">Outras Informações</div>
+				</div>
+
+				<div class="t-body tb-padding">
+				
+					<div layout-gt-xs="row">
+						<div class="col-sm-12">
+							<label class="control-label text-uppercase">Observações</label>
+						</div>
+					</div>	
+					
+					<div layout-gt-xs="row">
+						<div class="col-sm-12">
+							<md-input-container class="md-block" flex-gt-sm>
+							<textarea name="outrasInformacoes"
+								ng-model="bean.outrasInformacoes" md-maxlength="500" rows="5"></textarea>
+							</md-input-container>
+						</div>	
+					</div>
+					
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 text-center" ng-show="bean.incluidoEm != null">
+					<strong>Inclusão em {{bean.incluidoEm}}</strong>
+				</div>
+				<div class="col-md-6 text-center" ng-show="bean.alteradoEm != null">
+					<p class="text-righ">
+						<strong>Última alteração em {{bean.alteradoEm}}</strong>
+					</p>
+				</div>
+
+			</div>
+
+
+		<div class="t-body tb-padding">
+			<div class="btn-group-lg " style="float:right" >
+				<button type="submit" class="btn btn-primary btn-sm m-t-10" ag-botao-permissao  >GRAVAR</button>
+				<button type="button" class="btn bg-gray btn-sm m-t-10" id="cancelar" ui-sref='app_views.pessoafisica'>CANCELAR</button>
+			</div>
+		</div>	
+			
+			
+		</form>
+
+	</div>
+</section>
+
+<script>
+$(document).ready(function(){
+	$('.fone').mask('(999) 99999-9999');
+	$('.cep').mask('99999-999');
+	$('.date-idade').mask('99/99/9999');
+});
+</script>

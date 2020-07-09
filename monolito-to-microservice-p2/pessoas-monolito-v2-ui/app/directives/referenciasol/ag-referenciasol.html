@@ -1,0 +1,14 @@
+<div ng-class="validarClass()">
+	<label class="control-label text-uppercase" for="grauaprox">Status
+		{{ngObrigatorio ? '*' : ''}}</label> <select class="form-control"
+		ng-model="ngModelInicio" ng-required="ngObrigatorio">
+		
+		<option value="">Selecione uma Referencia</option>
+		<option ng-repeat="item in items" value="{{item.id}}" style="color: {{item.id}}" >{{item.nome}}</option>
+		
+	</select>
+
+	<div ng-show="passouOnChange">
+		<small class="help-block" ng-show="campo.$error.required">Referencia é obrigatório.</small>
+	</div>
+</div>

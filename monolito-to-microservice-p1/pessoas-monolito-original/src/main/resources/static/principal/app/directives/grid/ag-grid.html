@@ -1,0 +1,86 @@
+
+			<div class="">
+
+				<div class="tile">
+					
+
+					<table id="data-table-command"
+						class="table table-bordered table-vmiddle text-uppercase">
+						<thead>
+							<tr>
+								<th ng-repeat="item in ngData.colunas" width="{{item.width}}" >{{item.label}}</th>
+								<th data-column-id="commands" data-formatter="commands" data-sortable="false" width="15%"></th>
+							<!-- 
+								<th data-column-id="id" data-type="numeric">ID</th>
+								<th data-column-id="sender">Sender</th>
+								<th data-column-id="received" data-order="desc">Received</th>
+								<th data-column-id="commands" data-formatter="commands"
+									data-sortable="false">Commands</th>
+							 -->
+							</tr>
+						</thead>
+						
+						<tbody>
+							
+							<tr ng-repeat="item in ngData.paginacao.registros">
+								<td ng-repeat="itemColunas in ngData.colunas" ng-style="itemColunas.style" >
+									{{getValorCampo(item, itemColunas)}}
+								</td>
+
+								<td class="text-left">
+									<button ng-if="!ngSemPaginacao"  type="button" class="btn btn-icon btn-info command-edit"    ng-click="ngGridEditar(item.id)" title="Editar"><span class="zmdi zmdi-edit"></span></button> 
+									<button ng-if="!ngSemPaginacao"  type="button" class="btn btn-icon btn-info command-delete"  ng-click="ngGridExcluir(item.id)" title="Excluir"><span class="zmdi zmdi-delete"></span></button>
+
+									<div ng-if="!ngGridObjInteiro">
+										<button ng-if="ngSemPaginacao"  type="button" class="btn bg-orange btn-icon"  ng-click="ngGridSelecionar(item.id)" title="Selecionar"><span class="zmdi zmdi-check"></span></button>
+									</div>
+
+									<div ng-if="ngGridObjInteiro">
+										<button ng-if="ngSemPaginacao"  type="button" class="btn bg-orange btn-icon"  ng-click="ngGridSelecionar(item)" title="Selecionar"><span class="zmdi zmdi-check"></span></button>
+									</div>
+									
+									
+								</td>
+							</tr>
+							
+							<tr ng-if="ngData.paginacao.totalRegistros <= 0">
+								<td colspan="{{ngData.colunas.length}}">Nenhum registro encontrado</td>	
+							</tr>
+							
+						</tbody>
+					</table>
+					<div id="data-table-command-footer"
+						class="bootgrid-footer container-fluid" >
+						<div class="row">
+							<div class="col-sm-6">
+								<ul class="pagination">
+								
+									<li class="first {{ngData.paginacao.totalRegistros <= 0 ? 'disabled':''}}" aria-disabled="true">
+										<a class="button" ng-click="ngFuncaoPesquisa(0)" title="Primeiro" ><i
+											class="zmdi zmdi-more-horiz"></i></a></li>
+											
+									<li class="prev {{ngData.paginacao.pos-1 < 0 ? 'disabled' : ''}}" aria-disabled="true">
+										<a class="button" ng-click="ngFuncaoPesquisa(ngData.paginacao.pos-1)" title="Anterior"><i class="zmdi zmdi-chevron-left"></i></a>
+									</li>
+									
+									<li ng-repeat="item in getNroPaginas()" 
+										class="page-{{item}} {{item == ngData.paginacao.pos ? 'active' : ''}}" aria-disabled="false"	
+										aria-selected="{{item == ngData.paginacao.pos}}"><a class="button" ng-click="ngFuncaoPesquisa(item)" title="Página {{item+1}}">{{item+1}}</a></li>
+									
+									<li class="next {{ngData.paginacao.pos+1 >= ngData.paginacao.totalPaginas ? 'disabled' : ''}}" aria-disabled="false">
+										<a class="button" ng-click="ngFuncaoPesquisa(ngData.paginacao.pos+1)" title="Próximo"><i class="zmdi zmdi-chevron-right"></i></a></li>
+									
+									<li class="last {{ngData.paginacao.totalRegistros <= 0 ? 'disabled':''}}" aria-disabled="false">
+									    <a ng-click="ngFuncaoPesquisa(ngData.paginacao.totalPaginas-1)" title="Último"
+										class="button"><i class="zmdi zmdi-more-horiz"><i></i></i></a></li>
+										
+								</ul>
+							</div>
+							<div class="col-sm-6 infoBar">
+								<div class="infos">{{getResumo()}}</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>

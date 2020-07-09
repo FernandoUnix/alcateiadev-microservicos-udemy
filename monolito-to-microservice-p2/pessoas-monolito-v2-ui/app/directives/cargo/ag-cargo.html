@@ -1,0 +1,34 @@
+      <div layout-gt-xs="row">
+	      <md-input-container class="md-block" flex-gt-xs> 
+	        <label>{{ngLabel}} {{ngRequired ? '*': ''}}</label>
+	        
+	        <md-autocomplete
+	          ng-disabled="isDisabled"
+	          md-no-cache="noCache"
+	          md-selected-item="ngModelSelecionado"
+	          md-search-text="searchText"
+	          md-search-text-change="searchTextChange(searchText)"
+	          md-selected-item-change="selectedItemChange(item)"
+	          md-items="item in states"
+	          md-item-text="item.nome"
+	          md-min-length="0"
+	          md-delay="1000"
+	          placeholder="Digite o cargo"
+	          name="cargo"
+	          >
+	          
+	        <md-item-template>
+	          <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.nome}}</span>
+	        </md-item-template>
+	        
+	        <md-not-found>
+	          Nenhum resultado encontrado.
+	        </md-not-found>
+	      </md-autocomplete>
+	        
+	      <div ng-messages="ngForm.cargo.$error" role="alert">
+			<div ng-message="required">Cargo é obrigatório.</div>
+		  </div>
+	        
+	      </md-input-container>
+      </div>

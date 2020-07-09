@@ -1,0 +1,34 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+  instance:
+    lease-renewal-interval-in-seconds: 5
+
+zuul:
+  routes:
+    principal:
+      sensitiveHeaders:
+      path: /principal/**
+      url: http://127.0.0.1:8082
+    ui:
+      sensitiveHeaders:
+      path: /ui/**
+      url: http://127.0.0.1:8083
+
+                  

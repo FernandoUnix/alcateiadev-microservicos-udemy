@@ -1,0 +1,21 @@
+
+<div ng-class="validarClass()"  >
+	<label class="control-label text-uppercase" for="{{ngFor}}">{{ngLabel}}
+		{{ngObrigatorio ? '*' : ''}}</label>
+		
+	<div class="input-group  ">
+	 
+			<input class="form-control text-uppercase date-idade"
+			type="text"
+			ng-required="ngObrigatorio"
+			ng-model="nome" 
+			ng-change="valid()"/>
+			
+		</div>
+		
+		<div ng-show="passouOnChange || campo.$error.date">
+			<small class="help-block" ng-show="campo.$error.required">{{ngLabel}} é obrigatório.</small>
+			<small class="help-block" ng-show="campo.$error.date">Data inválida.</small>
+		</div>
+		
+</div>

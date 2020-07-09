@@ -1,0 +1,49 @@
+<md-dialog aria-label="Resetpasswd" ng-cloak >
+<md-dialog-content>
+<section id="content">
+	<div class="container janela" style=" overflow:scroll; overflow-x:hidden; top: 20; ">
+	
+	<header class="page-header">
+			<h3>{{titulo}}</h3>
+		</header>
+
+		<ag-filtro ng-funcao-pesquisa="consultar">
+		
+			<div class="row">
+				<div class="col-sm-12 actionBar">
+					
+					<div class="search form-group" flex="15" >
+						<div class="input-group" >
+							<input type="text" class="search-field form-control" placeholder="Código" ng-model="filtro.codigo">
+						</div>
+					</div>
+					
+					<div class="search form-group">	
+						<div class="input-group">
+							<input type="text" class="search-field form-control" placeholder="Nome" ng-model="filtro.descricao">
+						</div>
+					</div>
+	
+				</div>
+			</div>
+		
+		</ag-filtro>
+		
+		<ag-grid ng-data="grid" ng-grid-selecionar="selecionar" ng-funcao-pesquisa="consultar" ng-sem-paginacao="true" ng-grid-obj-inteiro="true"></ag-grid>
+			
+		<md-dialog-actions layout="row">
+		      <md-button ng-click="cancelar()">
+		        Cancelar
+		      </md-button>
+        </md-dialog-actions>
+        
+	</div>
+</section>
+</md-dialog-content>
+</md-dialog>
+
+<script>
+$(document).ready(function(){
+	$(".janela").css("height", window.screen.availHeight-400);
+});
+</script>

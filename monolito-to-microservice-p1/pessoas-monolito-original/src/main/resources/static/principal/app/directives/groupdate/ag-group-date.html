@@ -1,0 +1,31 @@
+
+<div ng-class="validarClass()"  >
+	<label class="control-label text-uppercase" for="{{ngFor}}">{{ngLabel}}
+		{{ngObrigatorio ? '*' : ''}}</label>
+		
+	<div class="input-group  ">
+	 
+			<input class="form-control text-uppercase"
+			type="text" 
+			ng-required="ngObrigatorio"
+			ng-model="nome" 
+			ng-change="valid()"
+			uib-datepicker-popup="dd/MM/yyyy"
+			is-open="popup1.opened"
+			close-text="Close"
+			datepicker-options="dateOptions"
+			alt-input-formats="altInputFormats"
+			ng-maxlength="1000" /> 
+			
+			<span class="input-group-addon last">
+	            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+	        </span>
+
+		</div>
+		
+		<div ng-show="passouOnChange || campo.$error.date">
+			<small class="help-block" ng-show="campo.$error.required">{{ngLabel}} é obrigatório.</small>
+			<small class="help-block" ng-show="campo.$error.date">Data inválida.</small>
+		</div>
+		
+</div>
